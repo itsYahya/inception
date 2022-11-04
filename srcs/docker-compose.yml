@@ -2,4 +2,5 @@ version: '3.3'
 
 services:
   nginx:
-    build: ./nginx
+    build: ./requerements/nginx
+    container_name: ngnix
