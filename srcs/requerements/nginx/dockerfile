@@ -1,3 +1,7 @@
-FROM alpine:3.14
+FROM alpine
 
-CMD [ "ping", "google.come" ]
+COPY ./tools/script.sh /tmp
+
+RUN chmod +x /tmp/script.sh
+
+CMD [ "./tmp/script.sh" ]
