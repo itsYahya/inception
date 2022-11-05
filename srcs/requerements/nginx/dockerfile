@@ -1,7 +1,17 @@
 FROM alpine
 
-COPY ./tools/script.sh /tmp
+RUN apk update
 
-RUN chmod +x /tmp/script.sh
+RUN apk add nginx
 
-CMD [ "./tmp/script.sh" ]
+RUN apk add openrc
+
+COPY ./tools/script.sh .
+
+RUN chmod +x ./script.sh
+
+COPY ./tools/index.html /usr/share/nginx/html/
+
+COPY ./tools/default.conf /etc/nginx/http.d/
+
+CMD [ "./script.sh" ]
