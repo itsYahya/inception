@@ -4,3 +4,6 @@ services:
   nginx:
     build: ./requerements/nginx
     container_name: ngnix
+    ports:
+      - "80:80"
+      - "3001:3001"
