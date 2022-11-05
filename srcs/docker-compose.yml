@@ -7,3 +7,7 @@ services:
     ports:
       - "80:80"
       - "3001:3001"
+  
+  mariadb:
+    build: ./requerements/mariadb
+    container_name: mariadb
