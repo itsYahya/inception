@@ -6,8 +6,11 @@ services:
     container_name: ngnix
     ports:
       - "80:80"
-      - "3001:3001"
   
   mariadb:
     build: ./requerements/mariadb
     container_name: mariadb
+    ports:
+      - "3306:3306"
+    env_file:
+      - .env
