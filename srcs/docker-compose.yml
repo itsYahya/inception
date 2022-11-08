@@ -2,15 +2,27 @@ version: '3.3'
 
 services:
   nginx:
-    build: ./requerements/nginx
+    build: ./requirements/nginx
     container_name: ngnix
-    ports:
-      - "80:80"
+    depends_on:
+      - wordpress
+    env_file:
+      - .env
   
   mariadb:
-    build: ./requerements/mariadb
+    build: ./requirements/mariadb
     container_name: mariadb
     ports:
       - "3306:3306"
+    env_file:
+      - .env
+
+  wordpress:
+    build: ./requirements/wordpress
+    container_name: wordpress
+    ports:
+      - "80:80"
+    depends_on:
+      - mariadb
     env_file:
       - .env
