@@ -1,5 +1,7 @@
 #! /bin/sh
 
+apt install -y php7.3 php-mysqli mariadb-client php-fpm wget
+
 wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 
 chmod +x wp-cli.phar
