@@ -10,8 +10,10 @@ wp core download --allow-root
 
 wp --allow-root core config --dbhost=mariadb --dbname=wordpress --dbuser=root --dbpass=$SQLROOTPASS
 
+chmod 644 /var/www/html/wp-config.php
+
 wp --allow-root core install --url=localhost --title="inceptin" --admin_user=$WPUSR --admin_email=$WPEMAIL
 
-chown -R www-data:www-data /var/www/
+chown -R www-data:www-data /var/www/html/
 
 exec php-fpm7.3  -F -R
