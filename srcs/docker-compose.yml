@@ -1,4 +1,4 @@
-version: '3.3'
+version: '3'
 
 services:
   nginx:
@@ -8,6 +8,8 @@ services:
       - wordpress
     ports:
       - "443:443"
+    volumes:
+      - "wordpress-data:/var/www/html/"
     env_file:
       - .env
   
@@ -16,6 +18,8 @@ services:
     container_name: mariadb
     ports:
       - "3306:3306"
+    volumes:
+      - "mariadb-data:/var/lib/mysql"
     env_file:
       - .env
 
@@ -26,5 +30,21 @@ services:
       - "9000:9000"
     depends_on:
       - mariadb
+    volumes:
+      - "wordpress-data:/var/www/html/"
     env_file:
       - .env
+
+volumes:
+  wordpress-data:
+    driver: local
+    driver_opts:
+      type: volume
+      device: /Users/yel-mrab/projects/inception/srcs/data/worpress
+      o: bind
+  mariadb-data:
+    driver: local
+    driver_opts:
+      type: volume
+      device: /Users/yel-mrab/projects/inception/srcs/data/mariadb
+      o: bind
