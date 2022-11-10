@@ -34,6 +34,16 @@ services:
       - "wordpress-data:/var/www/html/"
     env_file:
       - .env
+  adminer:
+    image: adminer
+    build: ./requirements/bonus/adminer
+    container_name: adminer
+    ports:
+      - "3001:3001"
+    depends_on:
+      - mariadb
+    env_file:
+      - .env
 
 volumes:
   wordpress-data:
