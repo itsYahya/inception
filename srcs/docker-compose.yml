@@ -44,6 +44,12 @@ services:
       - mariadb
     env_file:
       - .env
+  site:
+    image: site
+    build: ./requirements/bonus/site
+    container_name: site
+    ports:
+      - "5000:5000"
 
 volumes:
   wordpress-data:
