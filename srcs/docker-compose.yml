@@ -60,6 +60,15 @@ services:
     env_file:
       - .env
 
+  ftp:
+    image: ftp
+    build: ./requirements/bonus/ftp
+    container_name: ftp
+    ports:
+      - "4500:4500"
+    env_file:
+      - .env
+
 volumes:
   wordpress-data:
     driver: local
