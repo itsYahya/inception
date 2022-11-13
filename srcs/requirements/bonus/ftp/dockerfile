@@ -1,0 +1,13 @@
+FROM alpine
+
+RUN apk update
+
+RUN apk add vsftpd
+
+COPY ./tools/script.sh .
+
+RUN chmod +x ./script.sh
+
+COPY ./tools/vsftpd.conf /etc/vsftpd/vsftpd.conf
+
+CMD [ "./script.sh" ]
