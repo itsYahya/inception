@@ -65,7 +65,8 @@ services:
     build: ./requirements/bonus/ftp
     container_name: ftp
     ports:
-      - "4500:4500"
+      - "21:21"
+      - "4995-5000"
     env_file:
       - .env
 
