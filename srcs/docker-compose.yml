@@ -74,11 +74,11 @@ volumes:
     driver: local
     driver_opts:
       type: volume
-      device: /Users/yel-mrab/projects/inception/srcs/data/worpress
+      device: /home/yahya/data/wordpress
       o: bind
   mariadb-data:
     driver: local
     driver_opts:
       type: volume
-      device: /Users/yel-mrab/projects/inception/srcs/data/mariadb
+      device: /home/yahya/data/mariadb
       o: bind
