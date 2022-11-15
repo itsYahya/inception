@@ -12,6 +12,8 @@ services:
       - "wordpress-data:/var/www/html/"
     env_file:
       - .env
+    networks:
+      - default-net
   
   mariadb:
     build: ./requirements/mariadb
@@ -22,6 +24,8 @@ services:
       - "mariadb-data:/var/lib/mysql"
     env_file:
       - .env
+    networks:
+      - default-net
 
   wordpress:
     build: ./requirements/wordpress
@@ -34,6 +38,8 @@ services:
       - "wordpress-data:/var/www/html/"
     env_file:
       - .env
+    networks:
+      - default-net
   adminer:
     image: adminer
     build: ./requirements/bonus/adminer
@@ -44,6 +50,8 @@ services:
       - mariadb
     env_file:
       - .env
+    networks:
+      - default-net
   site:
     image: site
     build: ./requirements/bonus/site
@@ -59,6 +67,8 @@ services:
       - "6379:6379"
     env_file:
       - .env
+    networks:
+      - default-net
 
   ftp:
     image: ftp
@@ -70,6 +80,8 @@ services:
       - "21:21"
     env_file:
       - .env
+    networks:
+      - default-net
 
   cadvisor:
     image: cadvisor
@@ -84,6 +96,8 @@ services:
       - "2000:2000"
     env_file:
       - .env
+    networks:
+      - default-net
 
 volumes:
   wordpress-data:
@@ -104,3 +118,10 @@ volumes:
       type: volume
       device: /home/yahya/data/ftp
       o: bind
+
+networks:
+  default-net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.198.198.0/24
