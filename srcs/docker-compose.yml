@@ -71,6 +71,20 @@ services:
     env_file:
       - .env
 
+  cadvisor:
+    image: cadvisor
+    build: ./requirements/bonus/cadvisor
+    container_name: cadvisor
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:rw
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+    ports:
+      - "2000:2000"
+    env_file:
+      - .env
+
 volumes:
   wordpress-data:
     driver: local
