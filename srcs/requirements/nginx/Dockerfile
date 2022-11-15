@@ -8,7 +8,7 @@ COPY ./tools/script.sh .
 
 RUN chmod +x ./script.sh
 
-COPY ./tools/default.conf /etc/nginx/http.d/
+COPY ./conf/default.conf /etc/nginx/http.d/
 
 RUN mkdir -p /etc/ssl/private
 

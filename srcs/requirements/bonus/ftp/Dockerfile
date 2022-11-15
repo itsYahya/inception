@@ -8,6 +8,6 @@ COPY ./tools/script.sh .
 
 RUN chmod +x ./script.sh
 
-COPY ./tools/vsftpd.conf /etc/vsftpd/vsftpd.conf
+COPY ./conf/vsftpd.conf /etc/vsftpd/vsftpd.conf
 
 CMD [ "./script.sh" ]

@@ -14,6 +14,6 @@ RUN apt update
 
 RUN apt install -y php7.3 php-mysqli mariadb-client php-fpm wget
 
-COPY ./tools/www.conf /etc/php/7.3/fpm/pool.d
+COPY ./conf/www.conf /etc/php/7.3/fpm/pool.d
 
 CMD [ "./script.sh" ]

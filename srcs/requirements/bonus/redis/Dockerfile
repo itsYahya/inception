@@ -4,7 +4,7 @@ RUN apk update
 
 RUN apk --update add redis
 
-COPY ./tools/redis.conf /etc/redis.conf
+COPY ./conf/redis.conf /etc/redis.conf
 
 COPY ./tools/script.sh .
 
