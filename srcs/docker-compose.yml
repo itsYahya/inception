@@ -64,9 +64,10 @@ services:
     image: ftp
     build: ./requirements/bonus/ftp
     container_name: ftp
+    volumes:
+      - "ftp-data:/home/"
     ports:
       - "21:21"
-      - "4995-5000"
     env_file:
       - .env
 
@@ -82,4 +83,10 @@ volumes:
     driver_opts:
       type: volume
       device: /home/yahya/data/mariadb
+      o: bind
+  ftp-data:
+    driver: local
+    driver_opts:
+      type: volume
+      device: /home/yahya/data/ftp
       o: bind
