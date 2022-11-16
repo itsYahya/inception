@@ -21,6 +21,11 @@ ps:
 re: 
 	down build up
 
+# this role make you step inside a givin container
+# how to use => make step CONTAINER=nginx
+step:
+	$(COMPOSE) exec $(CONTAINER) sh
+
 clean:
 	docker container prune -f
 	docker volume prune -f
