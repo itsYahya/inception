@@ -3,7 +3,10 @@ COMPOSE=docker-compose -f $(CFILE)
 
 all: up 
 
-up: 
+up:
+	$(COMPOSE) up
+
+upd: 
 	$(COMPOSE) up -d
 
 build: 
