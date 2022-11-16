@@ -21,4 +21,12 @@ ps:
 re: 
 	down build up
 
-.PHONY: down build up ps
+clean:
+	docker container prune -f
+	docker volume prune -f
+	docker network prune -f
+
+fclean: clean
+	docker image prune -f	
+
+.PHONY: down build up ps clean fclean
