@@ -116,19 +116,19 @@ volumes:
     driver: local
     driver_opts:
       type: volume
-      device: /home/yahya/data/wordpress
+      device: /home/yel-mrab/data/wordpress
       o: bind
   mariadb-data:
     driver: local
     driver_opts:
       type: volume
-      device: /home/yahya/data/mariadb
+      device: /home/yel-mrab/data/mariadb
       o: bind
   ftp-data:
     driver: local
     driver_opts:
       type: volume
-      device: /home/yahya/data/ftp
+      device: /home/yel-mrab/data/ftp
       o: bind
 
 networks:
